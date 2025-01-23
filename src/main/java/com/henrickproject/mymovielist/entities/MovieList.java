@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "tb_movielist")
+@Table(name = "tb_movie_list")
 public class MovieList {
 	
 	@Id
