@@ -4,7 +4,7 @@ public interface MovieMinProjection {
 	
 	Long getId();
 	String getTitle();
-	Integer getYear();
+	Integer getMovieYear();
 	String getImgUrl();
 	String getShortDescription();
 	Integer getPosition();

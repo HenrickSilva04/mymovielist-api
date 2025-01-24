@@ -28,7 +28,7 @@ public class MovieMinDTO {
 	public MovieMinDTO(MovieMinProjection projection) {
 		id = projection.getId();
 		title = projection.getTitle();
-		year = projection.getYear();
+		year = projection.getMovieYear();
 		imgUrl = projection.getImgUrl();
 		shortDescription = projection.getShortDescription();
 	}
