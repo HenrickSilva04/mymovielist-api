@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.henrickproject.mymovielist.dto.MovieDTO;
 import com.henrickproject.mymovielist.dto.MovieListDTO;
 import com.henrickproject.mymovielist.dto.MovieMinDTO;
 import com.henrickproject.mymovielist.dto.ReplacementDTO;
-import com.henrickproject.mymovielist.entities.Movie;
 import com.henrickproject.mymovielist.services.MovieListService;
 import com.henrickproject.mymovielist.services.MovieService;
 
@@ -28,6 +26,13 @@ public class MovieListController {
 	@Autowired
 	private MovieService movieService;
 	
+	
+	@GetMapping(value = "/{id}")
+	public MovieListDTO findById(@PathVariable Long id) {
+		MovieListDTO result = movieListService.findById(id);
+		return result;
+	}
+		
 	@GetMapping
 	public List<MovieListDTO> findAll(){
 		List<MovieListDTO> result = movieListService.findAll();

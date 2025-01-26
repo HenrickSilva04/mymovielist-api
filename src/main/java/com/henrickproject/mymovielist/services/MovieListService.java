@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.henrickproject.mymovielist.dto.MovieDTO;
 import com.henrickproject.mymovielist.dto.MovieListDTO;
-import com.henrickproject.mymovielist.dto.MovieMinDTO;
-import com.henrickproject.mymovielist.entities.Movie;
 import com.henrickproject.mymovielist.entities.MovieList;
 import com.henrickproject.mymovielist.projections.MovieMinProjection;
 import com.henrickproject.mymovielist.repositories.MovieListRepository;
@@ -32,6 +29,7 @@ public class MovieListService {
 		
 	}
 	
+	@Transactional
 	public void move(Long listId, int sourceIndex, int destinationIndex) {
 		List<MovieMinProjection> list = movieRepository.searchByList(listId);
 		MovieMinProjection obj = list.remove(sourceIndex);
@@ -44,4 +42,11 @@ public class MovieListService {
 			movieListRepository.updateBelongingPosition(listId, list.get(i).getId(), i);
 		}
 	}
+	
+	@Transactional(readOnly = true)
+	public MovieListDTO findById(Long id) {
+		MovieList entity = movieListRepository.findById(id).get();
+		return new MovieListDTO(entity);
+	}
+	
 }

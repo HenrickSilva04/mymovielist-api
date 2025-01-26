@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.henrickproject.mymovielist.dto.MovieDTO;
 import com.henrickproject.mymovielist.dto.MovieMinDTO;
@@ -19,17 +20,15 @@ public class MovieService {
 	private MovieRepository movieRepository;
 	
 	@Transactional(readOnly = true)
-	public MovieDTO findById(Long id) {
-		Movie result = movieRepository.findById(id).get();
-		MovieDTO dto = new MovieDTO(result);
-		return dto;
+	public MovieDTO findById(@PathVariable Long listId) {
+		Movie result = movieRepository.findById(listId).get();
+		return new MovieDTO(result);
 	}
 	
 	@Transactional(readOnly = true)
 	public List<MovieMinDTO> findAll(){
 		List<Movie> result = movieRepository.findAll();
-		List<MovieMinDTO> dto = result.stream().map(x -> new MovieMinDTO(x)).toList();
-		return dto;
+		return result.stream().map(x -> new MovieMinDTO(x)).toList();
 	}
 	
 	@Transactional(readOnly = true)
