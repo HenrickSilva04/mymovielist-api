@@ -62,5 +62,5 @@ A API estará disponível em: `http://localhost:8080`
 - Criar um frontend para consumir a API
 
 
-Desenvolvido por **Henrick Silva** 🚀
+Desenvolvido por **Henrick Silva** 
 
