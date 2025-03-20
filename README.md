@@ -11,7 +11,7 @@ O **MyMovieList-Backend** é uma API REST desenvolvida em **Java** com **Spring 
 - **H2 / MySQL (dependendo da configuração)**
 - **Maven**
 
-## 🛠Configuração e Instalação
+## Configuração e Instalação
 ### Pré-requisitos
 - **JDK 17** ou superior
 - **Maven** instalado
